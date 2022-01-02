@@ -25,9 +25,9 @@ pub mod stream;
 pub mod method;
 
 #[async_trait]
-pub trait Send<REQ, RES> {
+pub trait Send<REQ> {
 	type Response;
-	async fn send(&self, request: &REQ) -> Result<RES, Error>;
+	async fn send(&self, request: &REQ) -> Result<Self::Response, Error>;
 }
 
 #[async_trait]
@@ -45,7 +45,7 @@ pub trait Request {
 }
 
 #[async_trait]
-impl<T: RequestAndResponse<Response=U> + Serialize + Sync, U: DeserializeOwned, R: LocoInstanceRead, W: LocoInstanceWrite> Send<T, U> for LocoInstance<R, W> {
+impl<T: RequestAndResponse<Response=U> + Serialize + Sync, U: DeserializeOwned, R: LocoInstanceRead, W: LocoInstanceWrite> Send<T> for LocoInstance<R, W> {
 	type Response = U;
 
 	async fn send(&self, request: &T) -> Result<U, Error> {
