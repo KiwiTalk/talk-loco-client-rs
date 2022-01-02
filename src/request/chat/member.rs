@@ -5,6 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
+use crate::method::MEMBER;
+use crate::RequestAndResponse;
+use crate::response::chat::MemberRes;
 
 /// Request detailed members of chatroom.
 /// Official client send this when clicking profile on chatroom.
@@ -19,4 +22,9 @@ pub struct MemberReq {
     #[serde(rename = "memberIds")]
     pub user_ids: Vec<i64>
 
+}
+
+impl RequestAndResponse for MemberReq {
+    const METHOD: &'static str = MEMBER;
+    type Response = MemberRes;
 }

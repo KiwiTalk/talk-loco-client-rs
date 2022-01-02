@@ -5,6 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
+use crate::method::DELETEMSG;
+use crate::RequestAndResponse;
+use crate::response::chat::DeleteMsgRes;
 
 /// Delete chat. Official server only deletes message sent before 5 mins max.
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -18,4 +21,9 @@ pub struct DeleteMsgReq {
     #[serde(rename = "logId")]
     pub log_id: i64
 
+}
+
+impl RequestAndResponse for DeleteMsgReq {
+    const METHOD: &'static str = DELETEMSG;
+    type Response = DeleteMsgRes;
 }

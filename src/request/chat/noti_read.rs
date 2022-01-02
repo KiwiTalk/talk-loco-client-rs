@@ -5,6 +5,8 @@
  */
 
 use serde::{Serialize, Deserialize};
+use crate::method::NOTIREAD;
+use crate::Request;
 
 /// Read message in chatroom
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -24,4 +26,8 @@ pub struct NotiReadReq {
     pub link_id: Option<i64>
 
 
+}
+
+impl Request for NotiReadReq {
+    const METHOD: &'static str = NOTIREAD;
 }

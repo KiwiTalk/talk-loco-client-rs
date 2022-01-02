@@ -5,7 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
-use crate::{ structs::client::ClientInfo};
+use crate::{RequestAndResponse, structs::client::ClientInfo};
+use crate::method::BUYCS;
+use crate::response::checkin::BuyCSRes;
 
 /// Request call server host data.
 /// Checkin response already contains call server info
@@ -18,4 +20,9 @@ pub struct BuyCSReq {
     #[serde(rename = "countryISO")]
     pub country_iso: String,
 
+}
+
+impl RequestAndResponse for BuyCSReq {
+    const METHOD: &'static str = BUYCS;
+    type Response = BuyCSRes;
 }

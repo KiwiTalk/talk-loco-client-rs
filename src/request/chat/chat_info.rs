@@ -5,6 +5,9 @@
  */
 
 use serde::{Deserialize, Serialize};
+use crate::method::CHATINFO;
+use crate::RequestAndResponse;
+use crate::response::chat::ChatInfoRes;
 
 /// Request Chatroom info
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -12,4 +15,9 @@ pub struct ChatInfoReq {
     /// Chatroom id
     #[serde(rename = "chatId")]
     pub chat_id: i64,
+}
+
+impl RequestAndResponse for ChatInfoReq {
+    const METHOD: &'static str = CHATINFO;
+    type Response = ChatInfoRes;
 }

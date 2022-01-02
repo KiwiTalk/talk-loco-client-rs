@@ -5,6 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
+use crate::method::LCHATLIST;
+use crate::RequestAndResponse;
+use crate::response::chat::LChatListRes;
 
 /// Request every chatroom list
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -26,4 +29,9 @@ pub struct LChatListReq {
     #[serde(rename = "lastChatId", skip_serializing_if = "Option::is_none")]
     pub last_chat_id: Option<i64>,
 
+}
+
+impl RequestAndResponse for LChatListReq {
+    const METHOD: &'static str = LCHATLIST;
+    type Response = LChatListRes;
 }

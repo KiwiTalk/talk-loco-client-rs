@@ -5,6 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
+use crate::method::SYNCMSG;
+use crate::RequestAndResponse;
+use crate::response::chat::SyncMsgRes;
 
 /// Sync skipped chats.
 /// Official client send this when last log id written is different compared to actual last log id.
@@ -26,4 +29,9 @@ pub struct SyncMsgReq {
 
     /// Last chat log id received by server.
     pub max: i64,
+}
+
+impl RequestAndResponse for SyncMsgReq {
+    const METHOD: &'static str = SYNCMSG;
+    type Response = SyncMsgRes;
 }

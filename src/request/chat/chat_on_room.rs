@@ -5,6 +5,9 @@
  */
 
 use serde::{Deserialize, Serialize};
+use crate::method::CHATONROOM;
+use crate::RequestAndResponse;
+use crate::response::chat::ChatInfoRes;
 
 /// Send before opening chatroom window. Notice server the user opening chatroom window.
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -19,4 +22,9 @@ pub struct ChatOnRoomReq {
     /// Openlink token of chatroom if openchat.
     #[serde(rename = "opt", skip_serializing_if = "Option::is_none")]
     pub open_token: Option<i32>,
+}
+
+impl RequestAndResponse for ChatOnRoomReq {
+    const METHOD: &'static str = CHATONROOM;
+    type Response = ChatInfoRes;
 }

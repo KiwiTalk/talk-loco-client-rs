@@ -5,6 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
+use crate::method::WRITE;
+use crate::RequestAndResponse;
+use crate::response::chat::WriteRes;
 
 /// Write message to chatroom
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -47,4 +50,9 @@ pub struct WriteReq {
     #[serde(skip_serializing_if = "Option::is_none")]
     pub supplement: Option<String>,
 
+}
+
+impl RequestAndResponse for WriteReq {
+    const METHOD: &'static str = WRITE;
+    type Response = WriteRes;
 }

@@ -5,6 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
+use crate::method::LEAVE;
+use crate::RequestAndResponse;
+use crate::response::chat::LeaveRes;
 
 /// Leave chatroom
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -17,4 +20,9 @@ pub struct LeaveReq {
     /// Block chatroom. Cannot rejoin chatroom if true.
     pub block: bool
 
+}
+
+impl RequestAndResponse for LeaveReq {
+    const METHOD: &'static str = LEAVE;
+    type Response = LeaveRes;
 }

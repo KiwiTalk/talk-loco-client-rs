@@ -5,7 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
-use crate::{ structs::client::ClientInfo};
+use crate::{RequestAndResponse, structs::client::ClientInfo};
+use crate::method::CHECKIN;
+use crate::response::checkin::CheckinRes;
 
 /// Request loco server host data
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -28,4 +30,9 @@ pub struct CheckinReq {
     #[serde(rename = "useSub")]
     pub use_usb: bool
 
+}
+
+impl RequestAndResponse for CheckinReq {
+    const METHOD: &'static str = CHECKIN;
+    type Response = CheckinRes;
 }

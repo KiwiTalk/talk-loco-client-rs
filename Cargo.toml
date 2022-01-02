@@ -17,9 +17,9 @@ serde = { version = "1.0", features = ["derive"] }
 futures = "0.3.16"
 bson = "2.0.1"
 loco-protocol = { version = "4.0.0", path = "../loco-protocol-rs" }
+async-trait = "0.1.52"
 
 [dev-dependencies]
-talk-api-client = { version = "0.1.0", path = "../talk-auth-client" }
 tokio-native-tls = "0.3.0"
 rsa = { version = "0.5.0", features = ["pem"] }
 tokio = { version = "1.9.0", features = ["full"] }

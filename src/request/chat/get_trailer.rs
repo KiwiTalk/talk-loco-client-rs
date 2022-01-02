@@ -5,6 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
+use crate::method::GETTRAILER;
+use crate::RequestAndResponse;
+use crate::response::chat::GetTrailerRes;
 
 /// Request media download server
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -18,3 +21,7 @@ pub struct GetTrailerReq {
     pub chat_type: i32
 }
 
+impl RequestAndResponse for GetTrailerReq {
+    const METHOD: &'static str = GETTRAILER;
+    type Response = GetTrailerRes;
+}

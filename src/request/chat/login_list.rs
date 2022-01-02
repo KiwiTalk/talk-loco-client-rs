@@ -5,7 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
-use crate::{ structs::client::ClientInfo};
+use crate::{RequestAndResponse, structs::client::ClientInfo};
+use crate::method::LOGINLIST;
+use crate::response::chat::LoginListRes;
 
 use super::LChatListReq;
 
@@ -52,4 +54,9 @@ pub struct LoginListReq {
     #[serde(rename = "bg")]
     pub background: bool
 
+}
+
+impl RequestAndResponse for LoginListReq {
+    const METHOD: &'static str = LOGINLIST;
+    type Response = LoginListRes;
 }

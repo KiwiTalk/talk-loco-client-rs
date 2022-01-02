@@ -5,6 +5,9 @@
  */
 
 use serde::{Serialize, Deserialize};
+use crate::method::SETMETA;
+use crate::RequestAndResponse;
+use crate::response::chat::SetMetaRes;
 
 /// Set Chatroom meta
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -21,4 +24,9 @@ pub struct SetMetaReq {
     /// Json or String content. Different depending on type.
     pub content: String
 
+}
+
+impl RequestAndResponse for SetMetaReq {
+    const METHOD: &'static str = SETMETA;
+    type Response = SetMetaRes;
 }
