@@ -27,3 +27,5 @@ method!(MEMBER);
 method!(UPDATECHAT);
 method!(GETTRAILER);
 
+method!(PING);
+method!(CHANGESVR);

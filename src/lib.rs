@@ -32,7 +32,7 @@ pub trait Send<REQ> {
 
 #[async_trait]
 pub trait SendOnly<REQ> {
-	async fn send(&self, request: &REQ) -> Result<(), Error>;
+	async fn send_only(&self, request: &REQ) -> Result<(), Error>;
 }
 
 pub trait RequestAndResponse {
@@ -55,7 +55,7 @@ impl<T: RequestAndResponse<Response=U> + Serialize + Sync, U: DeserializeOwned, 
 
 #[async_trait]
 impl<T: Request + Serialize + Sync, R: LocoInstanceRead, W: LocoInstanceWrite> SendOnly<T> for LocoInstance<R, W> {
-	async fn send(&self, request: &T) -> Result<(), Error> {
+	async fn send_only(&self, request: &T) -> Result<(), Error> {
 		self.send_bson(T::METHOD, request).await
 	}
 }
