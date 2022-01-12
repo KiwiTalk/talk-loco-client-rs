@@ -6,14 +6,13 @@
 
 use serde::{Serialize, Deserialize};
 use crate::method::PING;
-use crate::Request;
+use crate::RequestAndResponse;
 
 /// Signal server to keep connection
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Ping {
+pub struct Ping;
 
-}
-
-impl Request for Ping {
+impl RequestAndResponse for Ping {
 	const METHOD: &'static str = PING;
+	type Response = Self;
 }
