@@ -5,16 +5,17 @@
  */
 
 use serde::{Deserialize, Serialize};
+use crate::structs::chat::ChatId;
 
 use super::{chat::Chatlog, openlink::OpenLinkId, user::DisplayUserInfo};
 
 /// LOGINLIST chatroom list item.
 /// Including essential chatroom info.
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct ChannelListData {
     /// Chatroom id
     #[serde(rename = "c")]
-    pub id: i64,
+    pub id: ChatId,
 
     /// Chatroom type
     ///

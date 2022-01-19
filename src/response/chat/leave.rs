@@ -10,8 +10,8 @@ use serde::{Serialize, Deserialize};
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct LeaveRes {
 
-    /// Last token(?) id
-    #[serde(rename = "lastTokenId")]
-    pub last_token_id: i64
+	/// Last token(?) id
+	#[serde(rename = "lastTokenId")]
+	pub last_token_id: i64
 
 }

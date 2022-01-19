@@ -10,7 +10,7 @@ use crate::RequestAndResponse;
 
 /// Signal server to keep connection
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Ping;
+pub struct Ping {}
 
 impl RequestAndResponse for Ping {
 	const METHOD: &'static str = PING;

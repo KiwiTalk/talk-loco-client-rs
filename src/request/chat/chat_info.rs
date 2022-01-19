@@ -8,13 +8,14 @@ use serde::{Deserialize, Serialize};
 use crate::method::CHATINFO;
 use crate::RequestAndResponse;
 use crate::response::chat::ChatInfoRes;
+use crate::structs::chat::ChatId;
 
 /// Request Chatroom info
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ChatInfoReq {
     /// Chatroom id
     #[serde(rename = "chatId")]
-    pub chat_id: i64,
+    pub chat_id: ChatId,
 }
 
 impl RequestAndResponse for ChatInfoReq {

@@ -21,7 +21,7 @@ pub struct Chatlog {
 
     /// Chatroom id
     #[serde(rename = "chatId")]
-    pub chat_id: i64,
+    pub chat_id: ChatId,
 
     /// Chat type
     #[serde(rename = "type")]
@@ -66,3 +66,6 @@ pub struct Chatlog {
 
 
 }
+
+#[derive(Debug, Copy, Clone, Serialize, Deserialize, Default)]
+pub struct ChatId(i64);
