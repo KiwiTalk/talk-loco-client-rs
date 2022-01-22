@@ -8,6 +8,7 @@ use serde::{Serialize, Deserialize};
 use crate::method::GETMEM;
 use crate::RequestAndResponse;
 use crate::response::chat::GetMemRes;
+use crate::structs::ids::ChannelId;
 
 /// Request simplified member list of chatroom.
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -15,7 +16,7 @@ pub struct GetMemReq {
 
     /// Chatroom id
     #[serde(rename = "chatId")]
-    pub chat_id: i64
+    pub chat_id: ChannelId
 
 }
 

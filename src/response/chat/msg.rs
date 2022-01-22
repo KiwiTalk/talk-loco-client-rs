@@ -6,6 +6,7 @@
 
 use serde::{Serialize, Deserialize};
 use crate::{ structs::chat::Chatlog};
+use crate::structs::ids::ChannelId;
 
 /// Message sent from chatroom
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -13,7 +14,7 @@ pub struct Msg {
 
     /// Sent chatroom id
     #[serde(rename = "chatId")]
-    pub chat_id: i64,
+    pub chat_id: ChannelId,
 
     /// Sent chat log id
     #[serde(rename = "logId")]

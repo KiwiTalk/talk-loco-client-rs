@@ -29,3 +29,4 @@ method!(GETTRAILER);
 
 method!(PING);
 method!(CHANGESVR);
+method!(MSG);

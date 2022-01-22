@@ -5,7 +5,7 @@
  */
 
 use serde::{Deserialize, Serialize};
-use crate::structs::chat::ChatId;
+use crate::structs::ids::ChannelId;
 
 use super::{chat::Chatlog, openlink::OpenLinkId, user::DisplayUserInfo};
 
@@ -15,7 +15,7 @@ use super::{chat::Chatlog, openlink::OpenLinkId, user::DisplayUserInfo};
 pub struct ChannelListData {
     /// Chatroom id
     #[serde(rename = "c")]
-    pub id: ChatId,
+    pub id: ChannelId,
 
     /// Chatroom type
     ///
@@ -78,7 +78,7 @@ pub struct ChannelListData {
     pub jn: Option<i32>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct ChannelInfo {
     /// Chatroom id
     #[serde(rename = "chatId")]

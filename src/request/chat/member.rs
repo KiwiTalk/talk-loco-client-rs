@@ -8,6 +8,7 @@ use serde::{Serialize, Deserialize};
 use crate::method::MEMBER;
 use crate::RequestAndResponse;
 use crate::response::chat::MemberRes;
+use crate::structs::ids::ChannelId;
 
 /// Request detailed members of chatroom.
 /// Official client send this when clicking profile on chatroom.
@@ -16,7 +17,7 @@ pub struct MemberReq {
 
     /// Chatroom id
     #[serde(rename = "chatId")]
-    pub chat_id: i64,
+    pub chat_id: ChannelId,
 
     /// List of requesting user id list
     #[serde(rename = "memberIds")]

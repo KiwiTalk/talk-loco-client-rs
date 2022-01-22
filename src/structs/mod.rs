@@ -10,3 +10,4 @@ pub mod channel_info;
 pub mod openlink;
 pub mod chat;
 pub mod user;
+pub mod ids;

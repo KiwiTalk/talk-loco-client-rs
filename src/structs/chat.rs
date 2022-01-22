@@ -5,10 +5,11 @@
  */
 
 
-use serde::{Serialize, Deserialize};
+use serde::{Deserialize, Serialize};
+use crate::structs::ids::{ChannelId, UserId};
 
 /// Chat
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, Default)]
 pub struct Chatlog {
 
     /// Chatlog id
@@ -21,7 +22,7 @@ pub struct Chatlog {
 
     /// Chatroom id
     #[serde(rename = "chatId")]
-    pub chat_id: ChatId,
+    pub chat_id: ChannelId,
 
     /// Chat type
     #[serde(rename = "type")]
@@ -29,7 +30,7 @@ pub struct Chatlog {
 
     /// Sender id
     #[serde(rename = "authorId")]
-    pub author_id: i64,
+    pub author_id: UserId,
 
     /// Message content
     ///
@@ -66,6 +67,3 @@ pub struct Chatlog {
 
 
 }
-
-#[derive(Debug, Copy, Clone, Serialize, Deserialize, Default)]
-pub struct ChatId(i64);

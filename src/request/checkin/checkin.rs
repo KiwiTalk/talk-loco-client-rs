@@ -8,6 +8,7 @@ use serde::{Serialize, Deserialize};
 use crate::{RequestAndResponse, structs::client::ClientInfo};
 use crate::method::CHECKIN;
 use crate::response::checkin::CheckinRes;
+use crate::structs::ids::UserId;
 
 /// Request loco server host data
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -15,7 +16,7 @@ pub struct CheckinReq {
 
     /// Client user id. Login to acquire.
     #[serde(rename = "userId")]
-    pub user_id: i64,
+    pub user_id: UserId,
 
     #[serde(flatten)]
     pub client: ClientInfo,
